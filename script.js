@@ -1,15 +1,16 @@
 
+var currentTime = moment().format('H'); 
+var time = moment();
+var hour = moment.duration().hours();
 
-// moment function to display current date and time iterations
+// moment function to display current date and time
 $(document).ready(function () {
     $('#currentDay').html(moment().format('dddd, MMMM Do YYYY'));
 
-    console.log(moment());
+    // console.log(moment());
+    
 
-    var time = moment();
-    var hour = moment().hours();
-
-    // storage and user value recall function
+    // local storage and user value recall function
     function plannerActions() {
         $('.time-block').each(function () {
             var id = $(this).attr('id');
@@ -32,24 +33,33 @@ $(document).ready(function () {
     });
 
     // class change function
-    function timeColor() {
+    
+      function timeColor() {
         hour = time.hour();
         $('.time-block').each(function () {
-            var targetHour = parseInt($(this).attr('id'));
+            // var targetHour = parseInt($(this).attr('id'));
+            var blockTime = parseInt($(this).attr("id").split("hour")[1]);
+            console.log(blockTime, currentTime);
 
-            if (targetHour < hour) {
-                $(this).addClass('past')
+            if (blockTime < currentTime) {
+                $(this).addClass('past');
+                $(this).removeClass("future");
+                $(this).removeClass("present");
             }
-            else if (targetHour === hour) {
-                $(this).addClass('present')
+            else if (blockTime === currentTime) {
+                $(this).addClass('present');
+                $(this).removeClass("past");
+                $(this).removeClass("future");
             }
-            else if (targetHour > hour) {
-                $(this).addClass('future')
+            else if (blockTime > currentTime) {
+                $(this).addClass('future');
+                $(this).removeClass("present");
+                $(this).removeClass("past");
             }
         });
     }
 
-    timeColor();
+    // timeColor();
 })
 
 
