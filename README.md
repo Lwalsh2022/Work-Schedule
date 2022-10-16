@@ -1,4 +1,4 @@
-<img src = "Assets\Images\LisaWalshPhotographyHeaderImage2.png" alt = "logo">
+<img src = "Images\LisaWalshPhotographyHeaderImage2.png" alt = "logo">
 
 # Work Day Planner
 
@@ -32,7 +32,7 @@ moment.js is used to manipulate date values
 
 # Screenshot
 
-<img src = "Images\Screenshot.jpg">
+<img src = "Images\Screenshot.jpg" alt = "screenshot">
 
 
 
